@@ -31,17 +31,23 @@ namespace EndPoints.Api.Controllers
             _searchCar = searchCar;
             _saveCar = saveCar;
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="carListDto"></param>
+        /// <returns></returns>
         [HttpGet]
-
         public IActionResult GetCar([FromQuery]CarListDto carListDto)
         {
             var car =  _getCar.Execute(carListDto);
             return StatusCode(car.StatusCode, car);
         }
-
+        /// <summary>
+        /// نمایش یک ماشین از طریق شناسه
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet]
-
         public async Task<IActionResult> GetCarById(int id)
         {
             var car = await _getCarById.Execute(id);
