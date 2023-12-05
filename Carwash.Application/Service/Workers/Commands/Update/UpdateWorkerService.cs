@@ -17,9 +17,9 @@ public class UpdateWorkerService : IUpdateWorkerService
     {
         _context = context;
     }
-    public async Task<ResultDto<UpdateWorkerDto>> Execute(UpdateWorkerDto createWorkerDto)
+    public async Task<ResultDto<UpdateWorkerDto>> Execute(UpdateWorkerDto updateWorkerDto)
     {
-        var worker1 = await _context.Workers.FindAsync(createWorkerDto.Id);
+        var worker1 = await _context.Workers.FindAsync(updateWorkerDto.Id);
         if (worker1 == null)
         {
             return new ResultDto<UpdateWorkerDto>
@@ -31,20 +31,24 @@ public class UpdateWorkerService : IUpdateWorkerService
         }
         else
         {
-            worker1.FirstName = createWorkerDto.FirstName;
-            worker1.LastName = createWorkerDto.LastName;
-            worker1.Age = createWorkerDto.Age;
-            worker1.Bonus = createWorkerDto.Bonus;
-            worker1.Salary = createWorkerDto.Salary;
+            worker1.FirstName = updateWorkerDto.FirstName;
+            worker1.LastName = updateWorkerDto.LastName;
+            worker1.Age = updateWorkerDto.Age;
+            worker1.Salary = updateWorkerDto.Salary;
         }
-       await _context.SaveChangesAsync();
+
+        await _context.SaveChangesAsync();
 
         return new ResultDto<UpdateWorkerDto>
         {
             IsSuccess = true,
             Message = "ویرایش با موفقیت انجام شد",
             StatusCode = 200,
-            Data = createWorkerDto
+            Data = updateWorkerDto
         };
     }
 }
+//  worker1.FirstName = updateWorkerDto.FirstName;
+//worker1.LastName = updateWorkerDto.LastName;
+//  worker1.Age = updateWorkerDto.Age;
+// worker1.Salary = updateWorkerDto.Salary;

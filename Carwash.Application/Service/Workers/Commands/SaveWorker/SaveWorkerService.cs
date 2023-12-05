@@ -69,7 +69,6 @@ public class SaveWorkerService : ISaveWorkerService
                 worker.LastName = saveWorkerDto.LastName;
                 worker.Age = saveWorkerDto.Age;
                 worker.Salary = saveWorkerDto.Salary;
-                worker.Bonus = saveWorkerDto.Bonus;
             }
             await _context.SaveChangesAsync();
         }

@@ -10,5 +10,5 @@ namespace Carwash.Application.Service.Workers.Command.Update;
 
 public interface IUpdateWorkerService
 {
-    Task<ResultDto<UpdateWorkerDto>> Execute(UpdateWorkerDto createWorkerDto);
+    Task<ResultDto<UpdateWorkerDto>> Execute(UpdateWorkerDto updateWorkerDto);
 }

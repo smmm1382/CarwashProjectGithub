@@ -18,6 +18,8 @@ using Carwash.Application.Service.Khadamats.Queries.SearchKhadamat;
 using Carwash.Application.Service.Managers.Commands.Create;
 using Carwash.Application.Service.Managers.Commands.Delete;
 using Carwash.Application.Service.Managers.Queries;
+using Carwash.Application.Service.WorkerInKhadamats.Commands.Create;
+using Carwash.Application.Service.WorkerInKhadamats.Queries.GetWorkerInKhadamat;
 using Carwash.Application.Service.Workers.Command.Create;
 using Carwash.Application.Service.Workers.Command.Delete;
 using Carwash.Application.Service.Workers.Command.SaveWorker;
@@ -83,7 +85,9 @@ builder.Services.AddScoped<IDeleteManagerService, DeleteManagerService>();
 
 //History
 builder.Services.AddScoped<IGetHistoryService, GetHistoryService>();
-
+//WorkerInKhadamat
+builder.Services.AddScoped<ICreateWorkerInKhadamatService, CreateWorkerInKhadamatService>();
+builder.Services.AddScoped<IGetWorkerInKhadamat, GetWorkerInKhadamat>();
 
 
 //Jwt

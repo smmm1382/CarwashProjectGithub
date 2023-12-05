@@ -8,6 +8,28 @@ namespace Carwash.Application.Service.Cars.Queries.GetCar;
 
 public class CarListDto
 {
-    public int Page { get; set; }
-    public int PageSize { get; set; }
+    private int _Page = 1;
+    public int Page
+    {
+        get
+        {
+            return _Page;
+        }
+        set
+        {
+            _Page = value;
+        }
+    }
+    private int _PageSize = 5;
+    public int PageSize
+    {
+        get
+        {
+            return _PageSize;
+        }
+        set
+        {
+            _PageSize = value;
+        }
+    }
 }

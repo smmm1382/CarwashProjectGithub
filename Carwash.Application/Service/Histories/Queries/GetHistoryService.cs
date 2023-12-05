@@ -12,21 +12,27 @@ namespace Carwash.Application.Service.Histories.Queries;
 public class GetHistoryService : IGetHistoryService
 {
     private readonly IAppDbContext _context;
-
     public GetHistoryService(IAppDbContext context)
     {
         _context = context;
     }
-    public ResultDto<List<ManagerInHistory>> Execute()
+    public ResultDto<List<History>> Execute()
     {
-        var history = _context.ManagerInHistories.ToList();
-
-        return new ResultDto<List<ManagerInHistory>>
+        var history = _context.Histories.ToList();
         {
-            IsSuccess = true,
-            Message = "با موفقیت انجام شد",
-            StatusCode = 200,
-            Data = history
-        };
+            return new ResultDto<List<History>>
+            {
+                IsSuccess = true,
+                Message = "با موفقیت انجام شد",
+                StatusCode = 200,
+                Data = history
+            };
+        }
     }
 }
+
+
+
+
+
+

@@ -68,7 +68,7 @@ namespace EndPoints.Api.Controllers
 
         [HttpPut]
 
-        public async Task<IActionResult> Execute([FromQuery] UpdateWorkerDto createWorkerDto)
+        public async Task<IActionResult> Update([FromQuery] UpdateWorkerDto createWorkerDto)
         {
             var worker1 = await _updateWorker.Execute(createWorkerDto);
             return StatusCode(worker1.StatusCode, worker1);

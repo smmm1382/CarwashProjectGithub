@@ -2,6 +2,7 @@
 using Carwash.Common;
 using Carwash.Common.ResultDto;
 using Carwash.Domain.Entities;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections;
@@ -25,6 +26,7 @@ public class GetCarService : IGetCarService
     public ResultDto<ArrayList> Execute(CarListDto carListDto)
     {
         var carlist = _context.Cars.ToList().ToPaged(carListDto.Page, carListDto.PageSize, out int rowscount).ToList();
+
 
         ArrayList data = new ArrayList()
         {

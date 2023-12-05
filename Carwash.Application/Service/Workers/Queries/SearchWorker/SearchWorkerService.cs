@@ -1,4 +1,5 @@
 ﻿using Carwash.Application.Interface;
+using Carwash.Application.Service.Workers.Queries.SearchWorker;
 using Carwash.Common.ResultDto;
 using Carwash.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
@@ -20,15 +21,28 @@ namespace Carwash.Application.Service.Workers.Queries.SearchWorker
 
         public async Task<ResultDto<List<Worker>>> Execute(SearchWorkerDto searchWorkerDto)
         {
-            var worker = await _context.Workers.Where(d => d.LastName.Contains(searchWorkerDto.lastName) || d.Age == searchWorkerDto.Age).ToListAsync();
+            var worker = await _context.Workers.Where(d => d.FirstName.Contains(searchWorkerDto.firstName) || d.LastName == searchWorkerDto.lastName || d.Age == searchWorkerDto.Age).ToListAsync();
 
-            return new ResultDto<List<Worker>>
+            if (searchWorkerDto.firstName == null || searchWorkerDto.lastName == null || searchWorkerDto.Age == null)
             {
-                IsSuccess = true,
-                Message = "با موفقیت انجام شد",
-                StatusCode = 200,
-                Data = worker
-            };
+                return new ResultDto<List<Worker>>
+                {
+                    IsSuccess = false,
+                    Message = "نتیجه ای یافت نشد",
+                    StatusCode = 404
+                };
+            }
+
+            else
+            {
+                return new ResultDto<List<Worker>>
+                {
+                    IsSuccess = true,
+                    Message = "با موفقیت انجام شد",
+                    StatusCode = 200,
+                    Data = worker
+                };
+            }
         }
     }
 }

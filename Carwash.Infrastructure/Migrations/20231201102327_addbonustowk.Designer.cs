@@ -4,6 +4,7 @@ using Carwash.Infrastructure.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Carwash.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231201102327_addbonustowk")]
+    partial class addbonustowk
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -218,7 +221,7 @@ namespace Carwash.Infrastructure.Migrations
                             Email = "mousavi@gmail.com",
                             FirstName = "mahdi",
                             LastName = "mousavi",
-                            Password = "AQAAAAEAACcQAAAAEK9x9+ISdWBk8FLbeVdw4JsLUlDsZpdipLXilK/lT4KD1zKrjjRx13n2bB42d7PMoA=="
+                            Password = "AQAAAAEAACcQAAAAEHJ5kz5iYLKnEGnZY+mjE7sJjbFmLuXMi6BnxWlnCB86mRsw4b6rIOADD9rw+2lCwQ=="
                         });
                 });
 

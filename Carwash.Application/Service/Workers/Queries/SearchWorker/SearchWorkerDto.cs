@@ -8,6 +8,7 @@ namespace Carwash.Application.Service.Workers.Queries.SearchWorker;
 
 public class SearchWorkerDto
 {
+    public string? firstName { get; set; }
     public string? lastName { get; set; }
     public int? Age { get; set; }
 }

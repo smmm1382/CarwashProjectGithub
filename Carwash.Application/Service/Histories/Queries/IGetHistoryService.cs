@@ -11,5 +11,6 @@ namespace Carwash.Application.Service.Histories.Queries;
 
 public interface IGetHistoryService
 {
-    ResultDto<List<ManagerInHistory>> Execute();
+    ResultDto<List<History>> Execute();
 }
+    

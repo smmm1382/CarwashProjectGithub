@@ -17,4 +17,5 @@ public class WorkerInKhadamat
     //RelationShipKhadamat
     public int KhadamatId { get; set; }
     public Khadamat Khadamat { get; set; }
+    public decimal Bonus { get; set; }
 }
